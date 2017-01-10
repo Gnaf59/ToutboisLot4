@@ -8,9 +8,11 @@
         <servlet-name>Accueil</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
-    </session-config>
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <include-prelude>/WEB-INF/Head.jsp</include-prelude>
+            <include-coda>/WEB-INF/Footer.jsp</include-coda>
+        </jsp-property-group>
+    </jsp-config>
 </web-app>
