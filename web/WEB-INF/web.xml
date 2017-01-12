@@ -4,6 +4,14 @@
         <servlet-name>Accueil</servlet-name>
         <servlet-class>com.toutboisLot4.servlets.Accueil</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Identification</servlet-name>
+        <servlet-class>com.toutboisLot4.servlets.Identification</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AjoutFournisseur</servlet-name>
+        <servlet-class>com.toutboisLot4.servlets.AjoutFournisseur</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Accueil</servlet-name>
         <url-pattern>/</url-pattern>
@@ -20,13 +28,24 @@
         <servlet-name>default</servlet-name>
         <url-pattern>*.jpg</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.png</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Identification</servlet-name>
+        <url-pattern>/Identification</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjoutFournisseur</servlet-name>
+        <url-pattern>/AjoutFournisseur</url-pattern>
+    </servlet-mapping>
     <jsp-config>
         <jsp-property-group>
-            <url-pattern>*.jsp</url-pattern>
+            <url-pattern>/WEB-INF/Accueil.jsp</url-pattern>
+            <url-pattern>/WEB-INF/Login.jsp</url-pattern>
+            <url-pattern>/WEB-INF/AjoutFournisseur.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
             <include-prelude>/WEB-INF/Head.jsp</include-prelude>
             <include-coda>/WEB-INF/Footer.jsp</include-coda>
         </jsp-property-group>

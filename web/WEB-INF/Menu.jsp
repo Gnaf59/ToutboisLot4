@@ -11,16 +11,16 @@
                     <span class="icon-bar"></span>
                     
                 </button>
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">TOUTBOIS</a>
+                <a class="navbar-brand" href="Identification">TOUTBOIS</a>
             </div>
             
             <div class="navbar-collapse collapse in navbar-right" aria-expanded="false" id="navbar">
                 <ul class="nav navbar-nav">
-                    <li>Ajout Fournisseur</li>
-                    <li>Modifier Fournisseur</li>
-                    <li>Supprimer Fournisseur</li>
-                    <li>Ajouter commandes</li>
-                    <li>Liste commandes</li>
+                    <li><a href="AjoutFournisseur">Ajout Fournisseur</a></li>
+                    <li><a>Modifier Fournisseur</a></li>
+                    <li><a>Supprimer Fournisseur</a></li>
+                    <li><a>Ajouter commandes</a></li>
+                    <li><a>Liste commandes</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container -->
