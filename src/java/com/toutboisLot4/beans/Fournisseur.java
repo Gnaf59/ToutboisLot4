@@ -11,6 +11,7 @@ package com.toutboisLot4.beans;
  */
 public class Fournisseur {
 
+    private int idFournisseur;
     private String nomEntreprise;
     private String siretFournisseur;
     private String nomContact;
@@ -23,8 +24,6 @@ public class Fournisseur {
     private String numeroTelephone;
     private String paysFournisseur;
     private String codePostalFournisseur;
-    private String loginFournisseur;
-    private String mdp;
 
     public String getNomEntreprise() {
         return nomEntreprise;
@@ -122,22 +121,13 @@ public class Fournisseur {
         this.codePostalFournisseur = codePostalFournisseur;
     }
 
-    public String getLoginFournisseur() {
-        return loginFournisseur;
+    public int getIdFournisseur() {
+        return idFournisseur;
     }
 
-    public void setLoginFournisseur(String loginFournisseur) {
-        this.loginFournisseur = loginFournisseur;
+    public void setIdFournisseur(int idFournisseur) {
+        this.idFournisseur = idFournisseur;
     }
-
-    public String getMdp() {
-        return mdp;
-    }
-
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
-    }
-    
     
     
 }

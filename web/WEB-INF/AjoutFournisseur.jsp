@@ -39,8 +39,30 @@
             <input type="text" class="form-control" id="complementAdresseFournisseur" name="complementAdresseFournisseur" >
         </div>
         
+        <div class="form-group">
+            <label for="mailFournisseur">Mail fournisseur</label>
+            <input type="text" class="form-control" id="mailFournisseur" name="mailFournisseur" >
+        </div>
         
+        <div class="form-group">
+            <label for="numeroTelFournisseur">Numero téléphone du contact</label>
+            <input type="text" class="form-control" id="numeroTelFournisseur" name="numeroTelFournisseur" >
+        </div>
         
+        <div class="form-group">
+            <label for="villeFournisseur">Ville</label>
+            <input type="text" class="form-control" id="villeFournisseur" name="villeFournisseur" >
+        </div>
+        
+        <div class="form-group">
+            <label for="paysFournisseur">Pays</label>
+            <input type="text" class="form-control" id="paysFournisseur" name="paysFournisseur" >
+        </div>
+        
+        <div class="form-group">
+            <label for="codePostalFournisseur">Code postal</label>
+            <input type="text" class="form-control" id="codePostalFournisseur" name="codePostalFournisseur" >
+        </div> 
       </fieldset>
       <button type="submit" class="btn btn-primary">Ajouter</button>
     </div>

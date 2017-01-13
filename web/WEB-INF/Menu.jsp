@@ -14,7 +14,7 @@
                 <a class="navbar-brand" href="Identification">TOUTBOIS</a>
             </div>
             
-            <div class="navbar-collapse collapse in navbar-right" aria-expanded="false" id="navbar">
+            <div class="navbar-collapse collapse in navbar-right" aria-expanded="false" id="navbar" style="">
                 <ul class="nav navbar-nav">
                     <li><a href="AjoutFournisseur">Ajout Fournisseur</a></li>
                     <li><a>Modifier Fournisseur</a></li>

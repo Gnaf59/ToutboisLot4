@@ -5,6 +5,7 @@
  */
 package com.toutboisLot4.servlets;
 
+import com.toutboisLot4.beans.Fournisseur;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -59,6 +60,22 @@ public class AjoutFournisseur extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        Fournisseur fournisseur = new Fournisseur();
+        
+        fournisseur.setNomEntreprise(request.getParameter("nomEntrepriseFournisseur"));
+        fournisseur.setSiretFournisseur(request.getParameter("siretFournisseur"));
+        fournisseur.setNomContact(request.getParameter("nomContactFournisseur"));
+        fournisseur.setPrenomContact(request.getParameter("prenomContactFournisseur"));
+        fournisseur.setNumVoieFournisseur(Integer.parseInt(request.getParameter("numVoieFournisseur")));
+        fournisseur.setAdresseFournisseur(request.getParameter("adresseFournisseur"));
+        fournisseur.setComplementAdresseFournisseur(request.getParameter("complementAdresseFournisseur"));
+        fournisseur.setMailFournisseur(request.getParameter("mailFournisseur"));
+        fournisseur.setNumeroTelephone(request.getParameter("numeroTelFournisseur"));
+        fournisseur.setVilleFournisseur(request.getParameter("villeFournisseur"));
+        fournisseur.setPaysFournisseur(request.getParameter("paysFournisseur"));
+        fournisseur.setCodePostalFournisseur(request.getParameter("codePostalFournisseur"));
+
+        
     }
 
     /**
