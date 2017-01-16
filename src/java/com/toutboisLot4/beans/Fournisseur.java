@@ -7,7 +7,7 @@ package com.toutboisLot4.beans;
 
 /**
  *
- * @author Matthieu
+ * @author Matthieu, Gauthier
  */
 public class Fournisseur {
 

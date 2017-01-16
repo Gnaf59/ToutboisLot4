@@ -35,7 +35,7 @@
         </div>
         
         <div class="form-group">
-            <label for="complementAdresseFournisseur"> Complément d'adresse</label>
+            <label for="complementAdresseFournisseur">Complément d'adresse</label>
             <input type="text" class="form-control" id="complementAdresseFournisseur" name="complementAdresseFournisseur" >
         </div>
         
