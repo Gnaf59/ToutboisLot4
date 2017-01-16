@@ -12,6 +12,10 @@
         <servlet-name>AjoutFournisseur</servlet-name>
         <servlet-class>com.toutboisLot4.servlets.AjoutFournisseur</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AfficheFournisseur</servlet-name>
+        <servlet-class>com.toutboisLot4.servlets.AfficheFournisseur</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Accueil</servlet-name>
         <url-pattern>/</url-pattern>
@@ -40,11 +44,16 @@
         <servlet-name>AjoutFournisseur</servlet-name>
         <url-pattern>/AjoutFournisseur</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AfficheFournisseur</servlet-name>
+        <url-pattern>/AfficheFournisseur</url-pattern>
+    </servlet-mapping>
     <jsp-config>
         <jsp-property-group>
             <url-pattern>/WEB-INF/Accueil.jsp</url-pattern>
             <url-pattern>/WEB-INF/Login.jsp</url-pattern>
             <url-pattern>/WEB-INF/AjoutFournisseur.jsp</url-pattern>
+            <url-pattern>/WEB-INF/AfficherFournisseur.jsp</url-pattern>
             <page-encoding>UTF-8</page-encoding>
             <include-prelude>/WEB-INF/Head.jsp</include-prelude>
             <include-coda>/WEB-INF/Footer.jsp</include-coda>
