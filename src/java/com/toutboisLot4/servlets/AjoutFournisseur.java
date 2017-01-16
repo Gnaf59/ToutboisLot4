@@ -6,6 +6,8 @@
 package com.toutboisLot4.servlets;
 
 import com.toutboisLot4.beans.Fournisseur;
+import com.toutboisLot4.dao.DaoFactory;
+import com.toutboisLot4.dao.InterfaceFournisseurDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +21,7 @@ import javax.servlet.http.HttpSession;
  */
 public class AjoutFournisseur extends HttpServlet {
 
-    
+    private InterfaceFournisseurDAO daoFournisseur;
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -74,8 +76,18 @@ public class AjoutFournisseur extends HttpServlet {
         fournisseur.setVilleFournisseur(request.getParameter("villeFournisseur"));
         fournisseur.setPaysFournisseur(request.getParameter("paysFournisseur"));
         fournisseur.setCodePostalFournisseur(request.getParameter("codePostalFournisseur"));
+        
+        daoFournisseur.ajouterFournisseur(fournisseur);
+        
+        request.getRequestDispatcher("/WEB-INF/AjoutFournisseur.jsp").forward(request, response);
 
         
+    }
+    
+    @Override
+    public void init() throws ServletException {
+        DaoFactory daoFactory = DaoFactory.getInstance();
+        this.daoFournisseur=daoFactory.getFournisseurDAO();
     }
 
     /**
