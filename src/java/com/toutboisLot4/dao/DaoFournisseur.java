@@ -127,22 +127,23 @@ public class DaoFournisseur implements InterfaceFournisseurDAO {
                     + "FROM fournisseur WHERE idFournisseur = ?");
 
             preparedStatement.setInt(1, numeroFournisseur);
-
             ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
 
-            fournisseur.setIdFournisseur(rs.getInt("idFournisseur"));
-            fournisseur.setNomEntreprise(rs.getString("nomEntrepriseFournisseur"));
-            fournisseur.setSiretFournisseur(rs.getString("siretFournisseur"));
-            fournisseur.setNomContact(rs.getString("nomContactFournisseur"));
-            fournisseur.setPrenomContact(rs.getString("prenomContactFournisseur"));
-            fournisseur.setNumVoieFournisseur(rs.getInt("numVoieFournisseur"));
-            fournisseur.setAdresseFournisseur(rs.getString("adresseFournisseur"));
-            fournisseur.setComplementAdresseFournisseur(rs.getString("complementAdresseFournisseur"));
-            fournisseur.setMailFournisseur(rs.getString("mailFournisseur"));
-            fournisseur.setNumeroTelephone(rs.getString("numeroTelFournisseur"));
-            fournisseur.setVilleFournisseur(rs.getString("villeFournisseur"));
-            fournisseur.setPaysFournisseur(rs.getString("paysFournisseur"));
-            fournisseur.setCodePostalFournisseur(rs.getString("codePostalFournisseur"));
+                fournisseur.setIdFournisseur(rs.getInt("idFournisseur"));
+                fournisseur.setNomEntreprise(rs.getString("nomEntrepriseFournisseur"));
+                fournisseur.setSiretFournisseur(rs.getString("siretFournisseur"));
+                fournisseur.setNomContact(rs.getString("nomContactFournisseur"));
+                fournisseur.setPrenomContact(rs.getString("prenomContactFournisseur"));
+                fournisseur.setNumVoieFournisseur(rs.getInt("numVoieFournisseur"));
+                fournisseur.setAdresseFournisseur(rs.getString("adresseFournisseur"));
+                fournisseur.setComplementAdresseFournisseur(rs.getString("complementAdresseFournisseur"));
+                fournisseur.setMailFournisseur(rs.getString("mailFournisseur"));
+                fournisseur.setNumeroTelephone(rs.getString("numeroTelFournisseur"));
+                fournisseur.setVilleFournisseur(rs.getString("villeFournisseur"));
+                fournisseur.setPaysFournisseur(rs.getString("paysFournisseur"));
+                fournisseur.setCodePostalFournisseur(rs.getString("codePostalFournisseur"));
+            }
 
         } catch (SQLException e) {
 
