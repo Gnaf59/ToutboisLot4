@@ -18,8 +18,8 @@
                 <ul class="nav navbar-nav">
                     <li><a href="AjoutFournisseur">Ajout Fournisseur</a></li>
                     <li><a href="AfficheFournisseur?action=2">Liste Fournisseur</a></li>
-                    <li><a>Modifier Fournisseur</a></li>
-                    <li><a>Supprimer Fournisseur</a></li>
+                    <li><a href="AfficheFournisseur?action=0">Modifier Fournisseur</a></li>
+                    <li><a href="AfficheFournisseur?action=1">Supprimer Fournisseur</a></li>
                     <li><a>Ajouter commandes</a></li>
                     <li><a>Liste commandes</a></li>
                 </ul>

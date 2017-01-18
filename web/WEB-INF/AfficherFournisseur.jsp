@@ -28,12 +28,12 @@
                             <td><c:out value="${ fournisseur.mailFournisseur }" /></td>
                             <td><c:out value="${ fournisseur.numeroTelephone }" /></td>
                             <td>
-                                <%--<c:choose>
-                                    <c:when test="${ action = 0 }"><button type="button" class="btn btn-primary">Modifier</button></c:when>
-                                    <c:when test="${ action = 1 }"><button type="button" class="btn btn-danger">Supprimer</button></c:when>
-                                    <c:when test="${ action = 2 }"><button type="button" class="btn btn-info">Consulter</button></c:when>
+                                <c:choose>
+                                    <c:when test="${ action == 0 }"><button type="button" class="btn btn-primary">Modifier</button></c:when>
+                                    <c:when test="${ action == 1 }"><button type="button" class="btn btn-danger">Supprimer</button></c:when>
+                                    <c:when test="${ action == 2 }"><button type="button" class="btn btn-info">Consulter</button></c:when>
                                     <c:otherwise>Pas de bol...</c:otherwise>
-                                </c:choose> --%>
+                                </c:choose>
                             </td>
                         </tr>
                     </c:forEach>    

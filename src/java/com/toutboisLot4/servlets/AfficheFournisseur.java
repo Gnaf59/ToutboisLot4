@@ -7,8 +7,6 @@ package com.toutboisLot4.servlets;
 
 import com.toutboisLot4.beans.Fournisseur;
 import com.toutboisLot4.dao.DaoFactory;
-import com.toutboisLot4.dao.DaoFournisseur;
-import com.toutboisLot4.dao.InterfaceFournisseurDAO;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
