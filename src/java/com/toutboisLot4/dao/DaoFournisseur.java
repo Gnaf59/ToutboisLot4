@@ -66,9 +66,9 @@ public class DaoFournisseur implements InterfaceFournisseurDAO {
 
     @Override
     public List<Fournisseur> listeFournisseur() {
-        
+
         List<Fournisseur> listeFournisseur = new ArrayList<Fournisseur>();
-        
+
         try {
 
             Connection connexion = daoFactory.getConnection();
@@ -104,7 +104,7 @@ public class DaoFournisseur implements InterfaceFournisseurDAO {
         } catch (SQLException e) {
 
         }
-        
+
         return listeFournisseur;
     }
 
@@ -115,23 +115,39 @@ public class DaoFournisseur implements InterfaceFournisseurDAO {
 
     @Override
     public Fournisseur rechercheFournisseurParNumero(int numeroFournisseur) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//        try {
-//            Connection connexion = daoFactory.getConnection();
-//            PreparedStatement preparedStatement = connexion.prepareStatement("SELECT idFournisseur, nomEntrepriseFournisseur, siretFournisseur,"
-//                    + " nomContactFournisseur, prenomContactFournisseur, numVoieFournisseur,"
-//                    + " adresseFournisseur, complementAdresseFournisseur, mailFournisseur,"
-//                    + " numeroTelFournisseur, villeFournisseur, paysFournisseur, codePostalFournisseur "
-//                    + "FROM fournisseur WHERE idFournisseur = ?");
-//            
-//            preparedStatement.setInt(1, numeroFournisseur);
-//            
-//            
-//        } 
-//        catch (SQLException e) 
-//        {
-//            
-//        }
+
+        Fournisseur fournisseur = new Fournisseur();
+
+        try {
+            Connection connexion = daoFactory.getConnection();
+            PreparedStatement preparedStatement = connexion.prepareStatement("SELECT idFournisseur, nomEntrepriseFournisseur, siretFournisseur,"
+                    + " nomContactFournisseur, prenomContactFournisseur, numVoieFournisseur,"
+                    + " adresseFournisseur, complementAdresseFournisseur, mailFournisseur,"
+                    + " numeroTelFournisseur, villeFournisseur, paysFournisseur, codePostalFournisseur "
+                    + "FROM fournisseur WHERE idFournisseur = ?");
+
+            preparedStatement.setInt(1, numeroFournisseur);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            fournisseur.setIdFournisseur(rs.getInt("idFournisseur"));
+            fournisseur.setNomEntreprise(rs.getString("nomEntrepriseFournisseur"));
+            fournisseur.setSiretFournisseur(rs.getString("siretFournisseur"));
+            fournisseur.setNomContact(rs.getString("nomContactFournisseur"));
+            fournisseur.setPrenomContact(rs.getString("prenomContactFournisseur"));
+            fournisseur.setNumVoieFournisseur(rs.getInt("numVoieFournisseur"));
+            fournisseur.setAdresseFournisseur(rs.getString("adresseFournisseur"));
+            fournisseur.setComplementAdresseFournisseur(rs.getString("complementAdresseFournisseur"));
+            fournisseur.setMailFournisseur(rs.getString("mailFournisseur"));
+            fournisseur.setNumeroTelephone(rs.getString("numeroTelFournisseur"));
+            fournisseur.setVilleFournisseur(rs.getString("villeFournisseur"));
+            fournisseur.setPaysFournisseur(rs.getString("paysFournisseur"));
+            fournisseur.setCodePostalFournisseur(rs.getString("codePostalFournisseur"));
+
+        } catch (SQLException e) {
+
+        }
+        return fournisseur;
     }
 
 }

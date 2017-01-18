@@ -18,9 +18,21 @@ public class Commande{
     private int id_commande;
     private Date dateCommande;
     private Date dateLivraisonCommande;
-    private int id_EtatCommande;
-    private int idFournisseur;
+    private String etatCommande;    
     private  LigneCommande ligneCommande;
+    private Fournisseur fournisseur;
+    
+    
+    
+    
+
+    public Fournisseur getFournisseur() {
+        return fournisseur;
+    }
+
+    public void setFournisseur(Fournisseur fournisseur) {
+        this.fournisseur = fournisseur;
+    }
 
     public int getId_commande() {
         return id_commande;
@@ -54,21 +66,17 @@ public class Commande{
         this.dateLivraisonCommande = dateLivraisonCommande;
     }
 
-    public int getId_EtatCommande() {
-        return id_EtatCommande;
+    public String getEtatCommande() {
+        return etatCommande;
     }
 
-    public void setId_EtatCommande(int id_EtatCommande) {
-        this.id_EtatCommande = id_EtatCommande;
+    public void setEtatCommande(String etatCommande) {
+        this.etatCommande = etatCommande;
     }
 
-    public int getIdFournisseur() {
-        return idFournisseur;
-    }
+   
 
-    public void setIdFournisseur(int idFournisseur) {
-        this.idFournisseur = idFournisseur;
-    }
+    
     
     
     

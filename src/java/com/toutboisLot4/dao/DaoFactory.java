@@ -47,4 +47,13 @@ public class DaoFactory {
     public InterfaceFournisseurDAO getFournisseurDAO() {
         return new DaoFournisseur(this);
     }
+    public InterfaceProduitDAO getProduitDAO() {
+        return new DaoProduit(this);
+    }
+    
+    public InterfaceCommandeDAO getCommandeDAO() {
+        return new DaoCommande(this);
+    }
+    
+    
 }
