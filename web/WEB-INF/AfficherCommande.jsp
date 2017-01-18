@@ -14,11 +14,10 @@
                 <thead>
 
                 <th>Numéro de commande</th>
-                <th>Nom fournisseur</th>
                 <th>Date de commande</th>
+                <th>Etat Commande</th>
                 <th>Date de livraison commande</th>
-                
-                    <%--<th>Prix commande HT</th> --%>
+                <th>Nom fournisseur</th> 
 
 
                 </thead>
@@ -28,8 +27,9 @@
                     <tr>
                     <td><c:out value="${ commande.id_commande }" /></td>
                     <td><c:out value="${ commande.dateCommande }" /></td>
-                    <td><c:out value="${ commande.libelle_EtatCommande }" /></td>
+                    <td><c:out value="${ commande.etatCommande }" /></td>
                     <td><c:out value="${ commande.dateLivraisonCommande }" /></td>
+                    <td><c:out value="${ commande.fournisseur.nomEntreprise }" /></td>
                     
 
                     </tr>
