@@ -13,24 +13,24 @@
             <table class="table">
                 <thead>
 
-                <th>Numéro de commande</th>
+                <th>NumÃ©ro de commande</th>
                 <th>Nom fournisseur</th>
                 <th>Date de commande</th>
                 <th>Date de livraison commande</th>
-                <th>Etat commande</th>
+                
                     <%--<th>Prix commande HT</th> --%>
 
 
                 </thead>
 
                 <tbody>
-                <c:forEach items="${ commande }" var="commande" varStatus="status">     
+                <c:forEach items="${ commandes }" var="commande" varStatus="status">     
                     <tr>
                     <td><c:out value="${ commande.id_commande }" /></td>
                     <td><c:out value="${ commande.dateCommande }" /></td>
                     <td><c:out value="${ commande.libelle_EtatCommande }" /></td>
                     <td><c:out value="${ commande.dateLivraisonCommande }" /></td>
-                    <td><c:out value="${ commande.idFournisseur }" /></td>
+                    
 
                     </tr>
                 </c:forEach>  

@@ -28,7 +28,7 @@ public class DaoCommande implements InterfaceCommandeDAO {
     }
 
     @Override
-    public List<Commande>listeCommande() {
+    public List<Commande> listeCommande() {
 
         List<Commande> listeCommande = new ArrayList<Commande>();
 
@@ -36,15 +36,16 @@ public class DaoCommande implements InterfaceCommandeDAO {
 
             Connection connexion = daoFactory.getConnection();
             PreparedStatement preparedStatement = connexion.prepareStatement("SELECT idFournisseur,"
-                    + "dateCommande,id_commande,libelle_EtatCommande,dateLivraisonCommande FROM commandes"                    
-                    + "INNER JOIN etatcommande ON commandes.id_EtatCommande = etatcommande.id_EtatCommande");
+                    + "dateCommande,id_commande,libelle_EtatCommande,dateLivraisonCommande FROM commandes"
+                    + " INNER JOIN etatcommande ON commandes.id_EtatCommande = etatcommande.id_EtatCommande"
+                    + " WHERE commandes.idFournisseur IS NOT NULL");
 
             ResultSet resultatRequete = preparedStatement.executeQuery();
 
             while (resultatRequete.next()) {
-                
+
                 Commande commande = new Commande();
-                
+
                 InterfaceFournisseurDAO daofournisseur = daoFactory.getFournisseurDAO();
 
                 commande.setId_commande(resultatRequete.getInt("id_commande"));
@@ -52,8 +53,7 @@ public class DaoCommande implements InterfaceCommandeDAO {
                 commande.setDateCommande(resultatRequete.getDate("dateCommande"));
                 commande.setDateLivraisonCommande(resultatRequete.getDate("dateLivraisonCommande"));
                 commande.setFournisseur(daofournisseur.rechercheFournisseurParNumero(resultatRequete.getInt("idFournisseur")));
-                
-            
+
             }
 
         } catch (SQLException e) {

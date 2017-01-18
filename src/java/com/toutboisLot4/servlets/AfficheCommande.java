@@ -37,7 +37,7 @@ public class AfficheCommande extends HttpServlet {
             
             DaoFactory daoFactory = DaoFactory.getInstance();
             List<Commande> listeCommande = daoFactory.getCommandeDAO().listeCommande();
-            request.setAttribute("commande", listeCommande);
+            request.setAttribute("commandes", listeCommande);
             request.getRequestDispatcher("/WEB-INF/AfficherCommande.jsp").forward(request, response);
         }
         else
