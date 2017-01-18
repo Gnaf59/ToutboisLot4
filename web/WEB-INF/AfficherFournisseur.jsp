@@ -3,63 +3,43 @@
 
 <section id="bodyAfficheFournisseur">
     <div class="container ">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <h2 class="text-left"> Nom du fournisseur :  <c:out value="${ Fournisseur.nomEntreprise }"/></h2>
-                        
-                        <ul class="list-group">
-                             <li class="list-group-item">
-                                <h4 class="list-group-item-heading">Nom contact</h4>
-                                <p class="list-group-item-text"> <c:out value="${ Fournisseur.nomContact }"/></p>
-                            </li>
-                             <li class="list-group-item">
-                                <h4 class="list-group-item-heading">Prénom contact</h4>
-                                <p class="list-group-item-text"> <c:out value="${ Fournisseur.prenomContact }"/></p>
-                            </li>
-                             <li class="list-group-item">
-                                <h4 class="list-group-item-heading">Adresse de livraison</h4>
-                                <p class="list-group-item-text"> <c:out value="${ Fournisseur.nomContact }"/></p>
-                            </li>
-                             <li class="list-group-item">
-                                <h4 class="list-group-item-heading">Adresse de facturation</h4>
-                                <p class="list-group-item-text"> <c:out value="${ Fournisseur.nomContact }"/></p>
-                            </li>
-                             <li class="list-group-item">
-                                <h4 class="list-group-item-heading">Adresse mail</h4>
-                                <p class="list-group-item-text"> <c:out value="${ Fournisseur.mailFournisseur }"/></p>
-                            </li>
-                             <li class="list-group-item">
-                                <h4 class="list-group-item-heading">Numéro de téléphone</h4>
-                                <p class="list-group-item-text"> <c:out value="${ Fournisseur.numeroTelephone }"/></p>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <div class="row">
-
-                    <table class="table">
-                        <thead>
-                        <th>Numéro de commande</th>
-                        <th>Date de commande</th>
-                        <th>Date de livraison commande</th>
-                        <th>Etat commande</th>
-                        <th>Prix commande HT</th>                                
-                        </thead>
-                        <tbody>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        </tbody>
-                    </table>
-                </div>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="row">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Numéro de fournisseur</th>
+                            <th>Libellé de l'entreprise</th>
+                            <th>Nom du contact</th>
+                            <th>Prénom du contact</th>
+                            <th>Mail</th>
+                            <th>Numéro de téléphone</th>
+                            <th>Action</th>
+                        </tr>                                
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${ fournisseurs }" var="fournisseur" varStatus="status">    
+                        <tr>
+                            <td><c:out value="${ fournisseur.idFournisseur }" /></td>
+                            <td><c:out value="${ fournisseur.nomEntreprise }" /></td>
+                            <td><c:out value="${ fournisseur.nomContact }" /></td>
+                            <td><c:out value="${ fournisseur.prenomContact }" /></td>
+                            <td><c:out value="${ fournisseur.mailFournisseur }" /></td>
+                            <td><c:out value="${ fournisseur.numeroTelephone }" /></td>
+                            <td>
+                                <%--<c:choose>
+                                    <c:when test="${ action = 0 }"><button type="button" class="btn btn-primary">Modifier</button></c:when>
+                                    <c:when test="${ action = 1 }"><button type="button" class="btn btn-danger">Supprimer</button></c:when>
+                                    <c:when test="${ action = 2 }"><button type="button" class="btn btn-info">Consulter</button></c:when>
+                                    <c:otherwise>Pas de bol...</c:otherwise>
+                                </c:choose> --%>
+                            </td>
+                        </tr>
+                    </c:forEach>    
+                    </tbody>
+                </table>   
             </div>
         </div>
-    </div>   
+    </div>
 </section>

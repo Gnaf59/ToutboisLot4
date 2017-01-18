@@ -5,8 +5,12 @@
  */
 package com.toutboisLot4.servlets;
 
+import com.toutboisLot4.beans.Fournisseur;
+import com.toutboisLot4.dao.DaoFactory;
+import com.toutboisLot4.dao.DaoFournisseur;
+import com.toutboisLot4.dao.InterfaceFournisseurDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +35,10 @@ public class AfficheFournisseur extends HttpServlet {
         
         if ("admin".equals(identifiant))
         {
+            request.setAttribute("action", Integer.parseInt(request.getParameter("action")));
+            DaoFactory daoFactory = DaoFactory.getInstance();
+            List<Fournisseur> fournisseurListe = daoFactory.getFournisseurDAO().listeFournisseur();
+            request.setAttribute("fournisseurs", fournisseurListe);
             request.getRequestDispatcher("/WEB-INF/AfficherFournisseur.jsp").forward(request, response);
         }
         else

@@ -6,7 +6,7 @@
 package com.toutboisLot4.dao;
 
 import com.toutboisLot4.beans.Fournisseur;
-import java.util.HashMap;
+import java.util.List;
 
 /**
  *
@@ -17,7 +17,7 @@ public interface InterfaceFournisseurDAO {
     void ajouterFournisseur( Fournisseur fournisseur);
     void modifierFournisseur( Fournisseur fournisseur);
     void supprimerFournisseur( Fournisseur fournisseur);
-    HashMap<Integer,Fournisseur>listeFournisseur();
+    List<Fournisseur>listeFournisseur();
     Fournisseur rechercheFournisseurParNom(String nomFournisseur);
     Fournisseur rechercheFournisseurParNumero(int numeroFournisseur);
     
