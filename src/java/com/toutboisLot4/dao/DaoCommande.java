@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,8 +51,16 @@ public class DaoCommande implements InterfaceCommandeDAO {
                 
                 commande.setId_commande(resultatRequete.getInt("id_commande"));
                 commande.setEtatCommande(resultatRequete.getString("libelle_EtatCommande"));
-                commande.setDateCommande(resultatRequete.getDate("dateCommande"));
-                commande.setDateLivraisonCommande(resultatRequete.getDate("dateLivraisonCommande"));
+                try
+                {
+                    commande.setDateCommande(resultatRequete.getTimestamp("dateCommande").toLocalDateTime());
+                    commande.setDateLivraisonCommande(resultatRequete.getTimestamp("dateLivraisonCommande").toLocalDateTime());
+                }
+                catch(NullPointerException e)
+                {
+                
+                }
+                
                 commande.setFournisseur(daofournisseur.rechercheFournisseurParNumero(resultatRequete.getInt("idFournisseur")));
                 
                 listeCommande.add(commande);

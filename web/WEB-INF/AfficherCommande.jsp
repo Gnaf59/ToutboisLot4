@@ -19,21 +19,20 @@
                 <th>Date de livraison commande</th>
                 <th>Nom fournisseur</th> 
 
-
                 </thead>
 
                 <tbody>
-                <c:forEach items="${ commandes }" var="commande" varStatus="status">     
-                    <tr>
-                    <td><c:out value="${ commande.id_commande }" /></td>
-                    <td><c:out value="${ commande.dateCommande }" /></td>
-                    <td><c:out value="${ commande.etatCommande }" /></td>
-                    <td><c:out value="${ commande.dateLivraisonCommande }" /></td>
-                    <td><c:out value="${ commande.fournisseur.nomEntreprise }" /></td>
-                    
+                    <c:forEach items="${ commandes }" var="commande" varStatus="status">     
+                        <tr>
+                            <td><c:out value="${ commande.id_commande }" /></td>
+                            <td><c:out value="${ commande.dateCommandeString }" /></td>
+                            <td><c:out value="${ commande.etatCommande }" /></td>
+                            <td><c:out value="${ commande.dateLivraisonCommandeString }" /></td>
+                            <td><c:out value="${ commande.fournisseur.nomEntreprise }" /></td>
 
-                    </tr>
-                </c:forEach>  
+
+                        </tr>
+                    </c:forEach>  
                 </tbody>
             </table>
         </div>

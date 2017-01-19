@@ -5,7 +5,10 @@
  */
 package com.toutboisLot4.beans;
 
-import java.sql.Date;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 
@@ -16,8 +19,8 @@ import java.sql.Date;
 public class Commande{
     
     private int id_commande;
-    private Date dateCommande;
-    private Date dateLivraisonCommande;
+    private LocalDateTime dateCommande;
+    private LocalDateTime dateLivraisonCommande;
     private String etatCommande;    
     private  LigneCommande ligneCommande;
     private Fournisseur fournisseur;
@@ -50,22 +53,6 @@ public class Commande{
         this.id_commande = id_commande;
     }
 
-    public Date getDateCommande() {
-        return dateCommande;
-    }
-
-    public void setDateCommande(Date dateCommande) {
-        this.dateCommande = dateCommande;
-    }
-
-    public Date getDateLivraisonCommande() {
-        return dateLivraisonCommande;
-    }
-
-    public void setDateLivraisonCommande(Date dateLivraisonCommande) {
-        this.dateLivraisonCommande = dateLivraisonCommande;
-    }
-
     public String getEtatCommande() {
         return etatCommande;
     }
@@ -74,12 +61,49 @@ public class Commande{
         this.etatCommande = etatCommande;
     }
 
-   
+    public LocalDateTime getDateCommande() {
+        return dateCommande;
+    }
 
+    public void setDateCommande(LocalDateTime dateCommande) {
+        this.dateCommande = dateCommande;
+    }
+
+    public LocalDateTime getDateLivraisonCommande() {
+        return dateLivraisonCommande;
+    }
+
+    public void setDateLivraisonCommande(LocalDateTime dateLivraisonCommande) {
+        this.dateLivraisonCommande = dateLivraisonCommande;
+    }
+
+    public String getDateCommandeString()
+    {
+        String dateFormatted;
+        try{
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");       
+        dateFormatted = dateCommande.format(formatter);
+        }
+        catch(NullPointerException e)
+        {
+            dateFormatted = "";
+        }
+        
+        return dateFormatted;
+    }
     
-    
-    
-    
-    
+    public String getDateLivraisonCommandeString()
+    {
+        String dateFormatted;
+        try{
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        dateFormatted = dateLivraisonCommande.format(formatter);
+        }
+        catch(NullPointerException e)
+        {
+            dateFormatted = "";
+        }
+        return dateFormatted;
+    }
     
 }
