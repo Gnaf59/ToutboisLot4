@@ -19,24 +19,24 @@
                         </tr>                                
                     </thead>
                     <tbody>
-                    <c:forEach items="${ fournisseurs }" var="fournisseur" varStatus="status">    
-                        <tr>
-                            <td><c:out value="${ fournisseur.idFournisseur }" /></td>
-                            <td><c:out value="${ fournisseur.nomEntreprise }" /></td>
-                            <td><c:out value="${ fournisseur.nomContact }" /></td>
-                            <td><c:out value="${ fournisseur.prenomContact }" /></td>
-                            <td><c:out value="${ fournisseur.mailFournisseur }" /></td>
-                            <td><c:out value="${ fournisseur.numeroTelephone }" /></td>
-                            <td>
-                                <c:choose>
-                                    <c:when test="${ action == 0 }"><button type="button" class="btn btn-primary">Modifier</button></c:when>
-                                    <c:when test="${ action == 1 }"><button type="button" class="btn btn-danger">Supprimer</button></c:when>
-                                    <c:when test="${ action == 2 }"><button type="button" class="btn btn-info">Consulter</button></c:when>
-                                    <c:otherwise>Pas de bol...</c:otherwise>
-                                </c:choose>
-                            </td>
-                        </tr>
-                    </c:forEach>    
+                        <c:forEach items="${ fournisseurs }" var="fournisseur" varStatus="status">    
+                            <tr>
+                                <td><c:out value="${ fournisseur.idFournisseur }" /></td>
+                                <td><c:out value="${ fournisseur.nomEntreprise }" /></td>
+                                <td><c:out value="${ fournisseur.nomContact }" /></td>
+                                <td><c:out value="${ fournisseur.prenomContact }" /></td>
+                                <td><c:out value="${ fournisseur.mailFournisseur }" /></td>
+                                <td><c:out value="${ fournisseur.numeroTelephone }" /></td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${ action == 0 }"><a href=""><button type="button" class="btn btn-primary">Modifier</button></a></c:when>
+                                        <c:when test="${ action == 1 }"><a href=""><button type="button" class="btn btn-danger">Supprimer</button></a></c:when>
+                                        <c:when test="${ action == 2 }"><a href=""><button type="button" class="btn btn-info">Consulter</button></a></c:when>
+                                        <c:otherwise>Pas de bol...</c:otherwise>
+                                    </c:choose>
+                                </td>
+                            </tr>
+                        </c:forEach>    
                     </tbody>
                 </table>   
             </div>
