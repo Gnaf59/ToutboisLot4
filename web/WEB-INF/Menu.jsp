@@ -16,7 +16,7 @@
             
             <div class="navbar-collapse collapse in navbar-right" aria-expanded="false" id="navbar" style="">
                 <ul class="nav navbar-nav">
-                    <li><a href="AjoutFournisseur">Ajout Fournisseur</a></li>
+                    <li><a href="FournisseurFormulaire?action=3">Ajout Fournisseur</a></li>
                     <li><a href="AfficheFournisseur?action=2">Liste Fournisseur</a></li>
                     <li><a href="AfficheFournisseur?action=0">Modifier Fournisseur</a></li>
                     <li><a href="AfficheFournisseur?action=1">Supprimer Fournisseur</a></li>

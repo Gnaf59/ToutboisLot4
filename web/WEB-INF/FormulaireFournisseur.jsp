@@ -1,11 +1,11 @@
 <jsp:include page="Menu.jsp" />
 <form method="post" action="AjoutFournisseur">
     <div class="container">
-        <fieldset class="form-group">
+        <fieldset class="form-group" <c:if test="${ action==1 || action==2}">disabled</c:if>>
             <c:choose>
-                <c:when test="${ action == 0 }"><legend>Fournisseur n°<c:out value="${fournisseur.idFournisseur}"/></legend></c:when>
-                <c:when test="${ action == 1 }"><legend>Fournisseur n°<c:out value="${fournisseur.idFournisseur}"/></legend></c:when>
-                <c:when test="${ action == 2 }"><legend>Fournisseur n°<c:out value="${fournisseur.idFournisseur}"/></legend></c:when>
+                <c:when test="${ action == 0 }"><legend>Fournisseur nÂ°<c:out value="${fournisseur.idFournisseur}"/></legend></c:when>
+                <c:when test="${ action == 1 }"><legend>Fournisseur nÂ°<c:out value="${fournisseur.idFournisseur}"/></legend></c:when>
+                <c:when test="${ action == 2 }"><legend>Fournisseur nÂ°<c:out value="${fournisseur.idFournisseur}"/></legend></c:when>
                 <c:when test="${ action == 3 }"><legend>Nouveau Fournisseur</legend></c:when>
                 <c:otherwise>Pas de bol...</c:otherwise>
             </c:choose>
@@ -18,7 +18,7 @@
             </div>
 
             <div class="form-group">
-                <label for="siretFournisseur" >Numéro de Siret</label>
+                <label for="siretFournisseur" >NumÃ©ro de Siret</label>
                 <input class="form-control" type="text" id="siretFournisseur" name="siretFournisseur" <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.siretFournisseur}" />"</c:if> >
             </div>
 
@@ -28,12 +28,12 @@
             </div>
 
             <div class="form-group">
-                <label for="prenomContactFournisseur">Prénom du contact</label>
+                <label for="prenomContactFournisseur">PrÃ©nom du contact</label>
                 <input type="text" class="form-control" id="prenomContactFournisseur" name="prenomContactFournisseur" <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.prenomContact}" />"</c:if> >
             </div>
 
             <div class="form-group">
-                <label for="numVoieFournisseur">Numéro de voie</label>
+                <label for="numVoieFournisseur">NumÃ©ro de voie</label>
                 <input type="number" class="form-control" id="numVoieFournisseur" name="numVoieFournisseur" <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.numVoieFournisseur}" />"</c:if> >
             </div>
 
@@ -43,7 +43,7 @@
             </div>
 
             <div class="form-group">
-                <label for="complementAdresseFournisseur">Complément d'adresse</label>
+                <label for="complementAdresseFournisseur">ComplÃ©ment d'adresse</label>
                 <input type="text" class="form-control" id="complementAdresseFournisseur" name="complementAdresseFournisseur" <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.complementAdresseFournisseur}" />"</c:if> >
             </div>
 
@@ -53,7 +53,7 @@
             </div>
 
             <div class="form-group">
-                <label for="numeroTelFournisseur">Numero téléphone du contact</label>
+                <label for="numeroTelFournisseur">NumÃ©ro tÃ©lÃ©phone du contact</label>
                 <input type="text" class="form-control" id="numeroTelFournisseur" name="numeroTelFournisseur" <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.numeroTelephone}" />"</c:if> >
             </div>
 

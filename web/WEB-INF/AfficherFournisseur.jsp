@@ -29,9 +29,9 @@
                                 <td><c:out value="${ fournisseur.numeroTelephone }" /></td>
                                 <td>
                                     <c:choose>
-                                        <c:when test="${ action == 0 }"><a href=""><button type="button" class="btn btn-primary">Modifier</button></a></c:when>
-                                        <c:when test="${ action == 1 }"><a href=""><button type="button" class="btn btn-danger">Supprimer</button></a></c:when>
-                                        <c:when test="${ action == 2 }"><a href=""><button type="button" class="btn btn-info">Consulter</button></a></c:when>
+                                        <c:when test="${ action == 0 }"><a href="FournisseurFormulaire?action=0&id=${ fournisseur.idFournisseur }"><button type="button" class="btn btn-primary">Modifier</button></a></c:when>
+                                        <c:when test="${ action == 1 }"><a href="FournisseurFormulaire?action=1&id=${ fournisseur.idFournisseur }"><button type="button" class="btn btn-danger">Supprimer</button></a></c:when>
+                                        <c:when test="${ action == 2 }"><a href="FournisseurFormulaire?action=2&id=${ fournisseur.idFournisseur }"><button type="button" class="btn btn-info">Consulter</button></a></c:when>
                                         <c:otherwise>Pas de bol...</c:otherwise>
                                     </c:choose>
                                 </td>

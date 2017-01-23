@@ -77,6 +77,7 @@ public class AjoutFournisseur extends HttpServlet {
         fournisseur.setPaysFournisseur(request.getParameter("paysFournisseur"));
         fournisseur.setCodePostalFournisseur(request.getParameter("codePostalFournisseur"));
         
+        
         daoFournisseur.ajouterFournisseur(fournisseur);
         
         request.getRequestDispatcher("/WEB-INF/AjoutFournisseur.jsp").forward(request, response);
