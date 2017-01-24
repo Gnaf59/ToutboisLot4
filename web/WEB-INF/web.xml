@@ -24,6 +24,14 @@
         <servlet-name>FournisseurFormulaire</servlet-name>
         <servlet-class>com.toutboisLot4.servlets.FournisseurFormulaire</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ModifierFournisseur</servlet-name>
+        <servlet-class>com.toutboisLot4.servlets.ModifierFournisseur</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SupprimerFournisseur</servlet-name>
+        <servlet-class>com.toutboisLot4.servlets.SupprimerFournisseur</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Accueil</servlet-name>
         <url-pattern>/</url-pattern>
@@ -63,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>FournisseurFormulaire</servlet-name>
         <url-pattern>/FournisseurFormulaire</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModifierFournisseur</servlet-name>
+        <url-pattern>/ModifierFournisseur</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SupprimerFournisseur</servlet-name>
+        <url-pattern>/SupprimerFournisseur</url-pattern>
     </servlet-mapping>
     <jsp-config>
         <jsp-property-group>

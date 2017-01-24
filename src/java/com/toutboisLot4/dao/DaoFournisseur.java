@@ -56,12 +56,48 @@ public class DaoFournisseur implements InterfaceFournisseurDAO {
 
     @Override
     public void modifierFournisseur(Fournisseur fournisseur) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            Connection connexion = daoFactory.getConnection();
+            PreparedStatement preparedStatement = connexion.prepareStatement("UPDATE fournisseur SET"
+                    + " nomEntrepriseFournisseur = ?, siretFournisseur = ?, nomContactFournisseur = ?,"
+                    + " prenomContactFournisseur = ?, numVoieFournisseur = ?, adresseFournisseur = ?,"
+                    + " complementAdresseFournisseur = ?, villeFournisseur = ?, mailFournisseur = ?,"
+                    + " numeroTelFournisseur = ?, paysFournisseur = ?, codePostalFournisseur = ?"
+                    + " WHERE idFournisseur = ?");
+
+            preparedStatement.setString(1, fournisseur.getNomEntreprise());
+            preparedStatement.setString(2, fournisseur.getSiretFournisseur());
+            preparedStatement.setString(3, fournisseur.getNomContact());
+            preparedStatement.setString(4, fournisseur.getPrenomContact());
+            preparedStatement.setInt(5, fournisseur.getNumVoieFournisseur());
+            preparedStatement.setString(6, fournisseur.getAdresseFournisseur());
+            preparedStatement.setString(7, fournisseur.getComplementAdresseFournisseur());
+            preparedStatement.setString(8, fournisseur.getVilleFournisseur());
+            preparedStatement.setString(9, fournisseur.getMailFournisseur());
+            preparedStatement.setString(10, fournisseur.getNumeroTelephone());
+            preparedStatement.setString(11, fournisseur.getPaysFournisseur());
+            preparedStatement.setString(12, fournisseur.getCodePostalFournisseur());
+            preparedStatement.setInt(13, fournisseur.getIdFournisseur());
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void supprimerFournisseur(Fournisseur fournisseur) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            Connection connexion = daoFactory.getConnection();
+            PreparedStatement preparedStatement = connexion.prepareStatement("DELETE FROM fournisseur WHERE idFournisseur = ?");
+
+            
+            preparedStatement.setInt(1, fournisseur.getIdFournisseur());
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

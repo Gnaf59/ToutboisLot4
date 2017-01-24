@@ -42,7 +42,7 @@ public class AjoutFournisseur extends HttpServlet {
         
         if ("admin".equals(identifiant))
         {
-            request.getRequestDispatcher("/WEB-INF/AjoutFournisseur.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/FormulaireFournisseur.jsp").forward(request, response);
         }
         else
         {
@@ -80,7 +80,9 @@ public class AjoutFournisseur extends HttpServlet {
         
         daoFournisseur.ajouterFournisseur(fournisseur);
         
-        request.getRequestDispatcher("/WEB-INF/AjoutFournisseur.jsp").forward(request, response);
+        request.setAttribute("action", 3);
+        
+        request.getRequestDispatcher("/WEB-INF/FormulaireFournisseur.jsp").forward(request, response);
 
         
     }

@@ -1,11 +1,24 @@
 <jsp:include page="Menu.jsp" />
-<form method="post" action="AjoutFournisseur">
+<c:choose>
+    <c:when test="${action == 0}">
+        <form method="post" action="ModifierFournisseur">
+    </c:when>
+    <c:when test="${action == 1}">
+        <form method="post" action="SupprimerFournisseur">
+    </c:when>
+    <c:when test="${action == 2}">
+        <form method="post" action="AfficheFournisseur">
+    </c:when>
+    <c:when test="${action == 3}">
+        <form method="post" action="AjoutFournisseur">
+    </c:when>
+</c:choose>
     <div class="container">
         <fieldset class="form-group" <c:if test="${ action==1 || action==2}">disabled</c:if>>
             <c:choose>
-                <c:when test="${ action == 0 }"><legend>Fournisseur n°<c:out value="${fournisseur.idFournisseur}"/></legend></c:when>
-                <c:when test="${ action == 1 }"><legend>Fournisseur n°<c:out value="${fournisseur.idFournisseur}"/></legend></c:when>
-                <c:when test="${ action == 2 }"><legend>Fournisseur n°<c:out value="${fournisseur.idFournisseur}"/></legend></c:when>
+                <c:when test="${ action < 3 }">
+                    <legend>Fournisseur n°<c:out value="${fournisseur.idFournisseur}"/></legend>
+                </c:when>
                 <c:when test="${ action == 3 }"><legend>Nouveau Fournisseur</legend></c:when>
                 <c:otherwise>Pas de bol...</c:otherwise>
             </c:choose>
@@ -72,6 +85,11 @@
                 <input type="text" class="form-control" id="codePostalFournisseur" name="codePostalFournisseur" <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.codePostalFournisseur}" />"</c:if> >
             </div> 
         </fieldset>
+            
+        <c:if test="${ action < 3}">
+            <input type="hidden" name="idFournisseur" value="${fournisseur.idFournisseur}" />
+        </c:if>
+            
         <c:choose>
             <c:when test="${ action == 0 }"><button type="submit" class="btn btn-primary">Modifier</button></c:when>
             <c:when test="${ action == 1 }"><button type="submit" class="btn btn-danger">Supprimer</button></c:when>
