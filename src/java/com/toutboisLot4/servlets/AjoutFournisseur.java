@@ -8,7 +8,10 @@ package com.toutboisLot4.servlets;
 import com.toutboisLot4.beans.Fournisseur;
 import com.toutboisLot4.dao.DaoFactory;
 import com.toutboisLot4.dao.InterfaceFournisseurDAO;
+import com.toutboisLot4.Utils.CreationFournisseurForm;
+import com.toutboisLot4.Utils.FormulaireValidationException;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +25,8 @@ import javax.servlet.http.HttpSession;
 public class AjoutFournisseur extends HttpServlet {
 
     private InterfaceFournisseurDAO daoFournisseur;
+    public static final String VUE_SUCCES = "/WEB-INF/AfficherFournisseur.jsp";
+    public static final String VUE_FORM = "/WEB-INF/AjoutFournisseur.jsp";
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -35,17 +40,14 @@ public class AjoutFournisseur extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession session = request.getSession();
-        
+
         String identifiant = (String) session.getAttribute("login");
-        
-        if ("admin".equals(identifiant))
-        {
-            request.getRequestDispatcher("/WEB-INF/AjoutFournisseur.jsp").forward(request, response);
-        }
-        else
-        {
+
+        if ("admin".equals(identifiant)) {
+            request.getRequestDispatcher(VUE_FORM).forward(request, response);
+        } else {
             request.getRequestDispatcher("/WEB-INF/Login.jsp").forward(request, response);
         }
     }
@@ -63,7 +65,8 @@ public class AjoutFournisseur extends HttpServlet {
             throws ServletException, IOException {
 
         Fournisseur fournisseur = new Fournisseur();
-        
+        boolean erreur = false;
+
         fournisseur.setNomEntreprise(request.getParameter("nomEntrepriseFournisseur"));
         fournisseur.setSiretFournisseur(request.getParameter("siretFournisseur"));
         fournisseur.setNomContact(request.getParameter("nomContactFournisseur"));
@@ -76,18 +79,33 @@ public class AjoutFournisseur extends HttpServlet {
         fournisseur.setVilleFournisseur(request.getParameter("villeFournisseur"));
         fournisseur.setPaysFournisseur(request.getParameter("paysFournisseur"));
         fournisseur.setCodePostalFournisseur(request.getParameter("codePostalFournisseur"));
-        
-        daoFournisseur.ajouterFournisseur(fournisseur);
-        
-        request.getRequestDispatcher("/WEB-INF/AjoutFournisseur.jsp").forward(request, response);
 
-        
+        try {
+            CreationFournisseurForm.validationEmail(fournisseur.getMailFournisseur());
+        } catch (FormulaireValidationException e) {
+            request.setAttribute("mailInvalide", e.getMessage());
+            erreur = true;
+        }
+
+        if (erreur == false) {
+            daoFournisseur.ajouterFournisseur(fournisseur);
+            DaoFactory daoFactory = DaoFactory.getInstance();
+            List<Fournisseur> fournisseurListe = daoFactory.getFournisseurDAO().listeFournisseur();
+            request.setAttribute("fournisseurs", fournisseurListe);
+            request.setAttribute("action", 2);
+            request.getRequestDispatcher(VUE_SUCCES).forward(request, response);
+
+        } else {
+
+            request.getRequestDispatcher(VUE_FORM).forward(request, response);
+        }
+
     }
-    
+
     @Override
     public void init() throws ServletException {
         DaoFactory daoFactory = DaoFactory.getInstance();
-        this.daoFournisseur=daoFactory.getFournisseurDAO();
+        this.daoFournisseur = daoFactory.getFournisseurDAO();
     }
 
     /**

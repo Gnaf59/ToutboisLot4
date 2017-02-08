@@ -17,6 +17,10 @@
         <servlet-class>com.toutboisLot4.servlets.AfficheFournisseur</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AfficheProduit</servlet-name>
+        <servlet-class>com.toutboisLot4.servlets.AfficheProduit</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AfficheCommande</servlet-name>
         <servlet-class>com.toutboisLot4.servlets.AfficheCommande</servlet-class>
     </servlet>
@@ -53,6 +57,10 @@
         <url-pattern>/AfficheFournisseur</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>AfficheProduit</servlet-name>
+        <url-pattern>/AfficheProduit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AfficheCommande</servlet-name>
         <url-pattern>/AfficheCommande</url-pattern>
     </servlet-mapping>
@@ -62,7 +70,7 @@
             <url-pattern>/WEB-INF/Login.jsp</url-pattern>
             <url-pattern>/WEB-INF/AjoutFournisseur.jsp</url-pattern>
             <url-pattern>/WEB-INF/AfficherFournisseur.jsp</url-pattern>
-            <url-pattern>/WEB-INF/AfficherCommande.jsp</url-pattern>
+            <url-pattern>/WEB-INF/AfficheProduit.jsp</url-pattern>
             <page-encoding>UTF-8</page-encoding>
             <include-prelude>/WEB-INF/Head.jsp</include-prelude>
             <include-coda>/WEB-INF/Footer.jsp</include-coda>

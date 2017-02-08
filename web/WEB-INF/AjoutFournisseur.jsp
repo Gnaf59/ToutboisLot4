@@ -42,6 +42,7 @@
         <div class="form-group">
             <label for="mailFournisseur">Mail fournisseur</label>
             <input type="text" class="form-control" id="mailFournisseur" name="mailFournisseur" >
+            <c:out value="${ mailInvalide }" />
         </div>
         
         <div class="form-group">

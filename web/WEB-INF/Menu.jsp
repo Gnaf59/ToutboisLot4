@@ -22,6 +22,7 @@
                     <li><a href="AfficheFournisseur?action=1">Supprimer Fournisseur</a></li>
                     <li><a>Ajouter commandes</a></li>
                     <li><a href="AfficheCommande">Liste commandes</a></li>
+                    <li><a href="AfficheProduit">Liste produit</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container -->

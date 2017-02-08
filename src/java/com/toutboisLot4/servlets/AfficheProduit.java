@@ -5,11 +5,12 @@
  */
 package com.toutboisLot4.servlets;
 
-import com.toutboisLot4.beans.Commande;
+import com.toutboisLot4.beans.*;
 import com.toutboisLot4.dao.DaoFactory;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Matthieu
  */
-public class AfficheCommande extends HttpServlet {
+public class AfficheProduit extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -31,9 +32,10 @@ public class AfficheCommande extends HttpServlet {
         if ("admin".equals(identifiant)) {
 
             DaoFactory daoFactory = DaoFactory.getInstance();
-            List<Commande> listeCommande = daoFactory.getCommandeDAO().listeCommande();
-            request.setAttribute("commandes", listeCommande);
-            request.getRequestDispatcher("/WEB-INF/AfficherCommande.jsp").forward(request, response);
+            List<Produit> listeProduit = daoFactory.getProduitDAO().listesProduit();
+            request.setAttribute("produits", listeProduit);
+
+            request.getRequestDispatcher("/WEB-INF/AfficherProduit.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("/WEB-INF/Login.jsp").forward(request, response);
         }

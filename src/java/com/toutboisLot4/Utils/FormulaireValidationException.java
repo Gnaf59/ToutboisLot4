@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.toutboisLot4.dao;
-
-import com.toutboisLot4.beans.Produit;
-import java.util.List;
+package com.toutboisLot4.Utils;
 
 /**
  *
  * @author Matthieu
  */
-public interface InterfaceProduitDAO {
+public class FormulaireValidationException extends Exception {
 
-    List<Produit> listesProduit();
+    public FormulaireValidationException(String message) {
+        super(message);
+    }
 
 }
