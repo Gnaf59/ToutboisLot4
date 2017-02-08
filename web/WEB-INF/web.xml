@@ -24,6 +24,18 @@
         <servlet-name>AfficheCommande</servlet-name>
         <servlet-class>com.toutboisLot4.servlets.AfficheCommande</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FournisseurFormulaire</servlet-name>
+        <servlet-class>com.toutboisLot4.servlets.FournisseurFormulaire</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ModifierFournisseur</servlet-name>
+        <servlet-class>com.toutboisLot4.servlets.ModifierFournisseur</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SupprimerFournisseur</servlet-name>
+        <servlet-class>com.toutboisLot4.servlets.SupprimerFournisseur</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Accueil</servlet-name>
         <url-pattern>/</url-pattern>
@@ -64,11 +76,23 @@
         <servlet-name>AfficheCommande</servlet-name>
         <url-pattern>/AfficheCommande</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FournisseurFormulaire</servlet-name>
+        <url-pattern>/FournisseurFormulaire</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModifierFournisseur</servlet-name>
+        <url-pattern>/ModifierFournisseur</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SupprimerFournisseur</servlet-name>
+        <url-pattern>/SupprimerFournisseur</url-pattern>
+    </servlet-mapping>
     <jsp-config>
         <jsp-property-group>
             <url-pattern>/WEB-INF/Accueil.jsp</url-pattern>
             <url-pattern>/WEB-INF/Login.jsp</url-pattern>
-            <url-pattern>/WEB-INF/AjoutFournisseur.jsp</url-pattern>
+            <url-pattern>/WEB-INF/FormulaireFournisseur.jsp</url-pattern>
             <url-pattern>/WEB-INF/AfficherFournisseur.jsp</url-pattern>
             <url-pattern>/WEB-INF/AfficheProduit.jsp</url-pattern>
             <page-encoding>UTF-8</page-encoding>

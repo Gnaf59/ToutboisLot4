@@ -44,10 +44,13 @@ public class AjoutFournisseur extends HttpServlet {
         HttpSession session = request.getSession();
 
         String identifiant = (String) session.getAttribute("login");
-
-        if ("admin".equals(identifiant)) {
-            request.getRequestDispatcher(VUE_FORM).forward(request, response);
-        } else {
+        
+        if ("admin".equals(identifiant))
+        {
+            request.getRequestDispatcher("/WEB-INF/FormulaireFournisseur.jsp").forward(request, response);
+        }
+        else
+        {
             request.getRequestDispatcher("/WEB-INF/Login.jsp").forward(request, response);
         }
     }
@@ -79,6 +82,13 @@ public class AjoutFournisseur extends HttpServlet {
         fournisseur.setVilleFournisseur(request.getParameter("villeFournisseur"));
         fournisseur.setPaysFournisseur(request.getParameter("paysFournisseur"));
         fournisseur.setCodePostalFournisseur(request.getParameter("codePostalFournisseur"));
+        
+        
+        daoFournisseur.ajouterFournisseur(fournisseur);
+        
+        request.setAttribute("action", 3);
+        
+        request.getRequestDispatcher("/WEB-INF/FormulaireFournisseur.jsp").forward(request, response);
 
         try {
             CreationFournisseurForm.validationEmail(fournisseur.getMailFournisseur());
