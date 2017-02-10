@@ -24,6 +24,13 @@
     </div>
 </footer>
  <script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script>
- <script src="${pageContext.request.contextPath}/CSS/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>   
+ <script src="${pageContext.request.contextPath}/CSS/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+ 
+ <script type="text/javascript">setTimeout( function(){
+    var oMsg = document.getElementById('message');
+  
+    oMsg.style.display = 'none'; }, 4000);
+    
+ </script>
 </body>
 </html>

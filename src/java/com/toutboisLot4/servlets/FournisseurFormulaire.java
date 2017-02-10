@@ -30,8 +30,6 @@ public class FournisseurFormulaire extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -44,28 +42,22 @@ public class FournisseurFormulaire extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession session = request.getSession();
-        
         String identifiant = (String) session.getAttribute("login");
-        
-        if ("admin".equals(identifiant))
-        {
+
+        if ("admin".equals(identifiant)) {
             request.setAttribute("action", Integer.parseInt(request.getParameter("action")));
-            
-            if(Integer.parseInt(request.getAttribute("action").toString()) < 3)
-            {
-                
+
+            if (Integer.parseInt(request.getAttribute("action").toString()) < 3) {
+
                 DaoFactory daoFactory = DaoFactory.getInstance();
                 Fournisseur fournisseur = daoFactory.getFournisseurDAO().rechercheFournisseurParNumero(Integer.parseInt(request.getParameter("id")));
                 request.setAttribute("fournisseur", fournisseur);
             }
-            
-            
+
             request.getRequestDispatcher("/WEB-INF/FormulaireFournisseur.jsp").forward(request, response);
-        }
-        else
-        {
+        } else {
             request.getRequestDispatcher("/WEB-INF/Login.jsp").forward(request, response);
         }
     }
@@ -81,7 +73,7 @@ public class FournisseurFormulaire extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
     /**

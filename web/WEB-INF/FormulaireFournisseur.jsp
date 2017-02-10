@@ -24,66 +24,76 @@
             </c:choose>
 
 
+             <c:if test="${ not empty fournisseur}">
+            <h3 id="message" style="text-align: center"> Erreur d'enregistrement , le fournisseur : 
+               n'est pas  ajouté à la base de données</h3>
+        </c:if> 
+                
+                
+                
             <div class="form-group">
-                <label for="nomEntrepriseFournisseur">Nom Entreprise</label>
+                <label for="nomEntrepriseFournisseur">Nom Entreprise *</label><c:out value="${ champsGlobal }" />   
                 <input type="text" class="form-control" id="nomEntrepriseFournisseur" name="nomEntrepriseFournisseur" 
-                       <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.nomEntreprise}" />"</c:if> />
+                       value="<c:out value="${fournisseur.nomEntreprise}" />"
             </div>
 
             <div class="form-group">
-                <label for="siretFournisseur" >Numéro de Siret</label>
-                <input class="form-control" type="text" id="siretFournisseur" name="siretFournisseur" <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.siretFournisseur}" />"</c:if> >
+                <label for="siretFournisseur" >Numéro de Siret*</label><c:out value="${ champsSiret }" />
+                <input class="form-control" type="text" id="siretFournisseur" name="siretFournisseur"value="<c:out value="${fournisseur.siretFournisseur}" />"
             </div>
 
             <div class="form-group">
-                <label for="nomContactFournisseur">Nom du contact</label>
-                <input type="text" class="form-control" id="nomContactFournisseur" name="nomContactFournisseur" <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.nomContact}" />"</c:if> >
+                <label for="nomContactFournisseur">Nom du contact </label>           
+                <input type="text" class="form-control" id="nomContactFournisseur" name="nomContactFournisseur" value="<c:out value="${fournisseur.nomContact}" />"
+                       
             </div>
 
             <div class="form-group">
-                <label for="prenomContactFournisseur">Prénom du contact</label>
-                <input type="text" class="form-control" id="prenomContactFournisseur" name="prenomContactFournisseur" <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.prenomContact}" />"</c:if> >
+                <label for="prenomContactFournisseur">Prénom du contact </label> 
+                <input type="text" class="form-control" id="prenomContactFournisseur" name="prenomContactFournisseur" value="<c:out value="${fournisseur.prenomContact}" />"
             </div>
 
             <div class="form-group">
-                <label for="numVoieFournisseur">Numéro de voie</label>
-                <input type="number" class="form-control" id="numVoieFournisseur" name="numVoieFournisseur" <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.numVoieFournisseur}" />"</c:if> >
+                <label for="numVoieFournisseur">Numéro de voie*</label><c:out value="${ champsVoie }" />
+                <input type="number" class="form-control" id="numVoieFournisseur" name="numVoieFournisseur" value="<c:out value="${fournisseur.numVoieFournisseur}" />"
             </div>
 
             <div class="form-group">
-                <label for="adresseFournisseur">Adresse</label>
-                <input type="text" class="form-control" id="adresseFournisseur" name="adresseFournisseur" <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.adresseFournisseur}" />"</c:if> >
+                <label for="adresseFournisseur">Adresse</label>  
+                <input type="text" class="form-control" id="adresseFournisseur" name="adresseFournisseur" value="<c:out value="${fournisseur.adresseFournisseur}" />"
             </div>
 
             <div class="form-group">
                 <label for="complementAdresseFournisseur">Complément d'adresse</label>
-                <input type="text" class="form-control" id="complementAdresseFournisseur" name="complementAdresseFournisseur" <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.complementAdresseFournisseur}" />"</c:if> >
+                <input type="text" class="form-control" id="complementAdresseFournisseur" name="complementAdresseFournisseur" value="<c:out value="${fournisseur.complementAdresseFournisseur}" />"
             </div>
 
             <div class="form-group">
-                <label for="mailFournisseur">Mail fournisseur</label>
-                <input type="text" class="form-control" id="mailFournisseur" name="mailFournisseur" <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.mailFournisseur}" />"</c:if> >
+                <label for="mailFournisseur">Mail fournisseur*</label><c:out value="${ mailInvalide }" />
+                <input type="text" class="form-control" id="mailFournisseur" name="mailFournisseur"value="<c:out value="${fournisseur.mailFournisseur}" />"
+               
             </div>
 
             <div class="form-group">
                 <label for="numeroTelFournisseur">Numéro téléphone du contact</label>
-                <input type="text" class="form-control" id="numeroTelFournisseur" name="numeroTelFournisseur" <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.numeroTelephone}" />"</c:if> >
+                <input type="text" class="form-control" id="numeroTelFournisseur" name="numeroTelFournisseur" value="<c:out value="${fournisseur.numeroTelephone}" />"
             </div>
 
             <div class="form-group">
                 <label for="villeFournisseur">Ville</label>
-                <input type="text" class="form-control" id="villeFournisseur" name="villeFournisseur" <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.villeFournisseur}" />"</c:if> >
+                <input type="text" class="form-control" id="villeFournisseur" name="villeFournisseur" value="<c:out value="${fournisseur.villeFournisseur}" />"
             </div>
 
             <div class="form-group">
                 <label for="paysFournisseur">Pays</label>
-                <input type="text" class="form-control" id="paysFournisseur" name="paysFournisseur" <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.paysFournisseur}" />"</c:if> >
+                <input type="text" class="form-control" id="paysFournisseur" name="paysFournisseur" value="<c:out value="${fournisseur.paysFournisseur}" />"
             </div>
 
             <div class="form-group">
-                <label for="codePostalFournisseur">Code postal</label>
-                <input type="text" class="form-control" id="codePostalFournisseur" name="codePostalFournisseur" <c:if test="${ action < 3 }" >value="<c:out value="${fournisseur.codePostalFournisseur}" />"</c:if> >
+                <label for="codePostalFournisseur">Code postal</label> <c:out value="${ cpInvalide }" /> 
+                <input type="text" class="form-control" id="codePostalFournisseur" name="codePostalFournisseur" value="<c:out value="${fournisseur.codePostalFournisseur}" />"           
             </div> 
+                               
         </fieldset>
             
         <c:if test="${ action < 3}">

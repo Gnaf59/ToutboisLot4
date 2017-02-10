@@ -26,7 +26,7 @@ public class AjoutFournisseur extends HttpServlet {
 
     private InterfaceFournisseurDAO daoFournisseur;
     public static final String VUE_SUCCES = "/WEB-INF/AfficherFournisseur.jsp";
-    public static final String VUE_FORM = "/WEB-INF/AjoutFournisseur.jsp";
+    public static final String VUE_FORM = "/WEB-INF/FormulaireFournisseur.jsp";
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -44,13 +44,10 @@ public class AjoutFournisseur extends HttpServlet {
         HttpSession session = request.getSession();
 
         String identifiant = (String) session.getAttribute("login");
-        
-        if ("admin".equals(identifiant))
-        {
+
+        if ("admin".equals(identifiant)) {
             request.getRequestDispatcher("/WEB-INF/FormulaireFournisseur.jsp").forward(request, response);
-        }
-        else
-        {
+        } else {
             request.getRequestDispatcher("/WEB-INF/Login.jsp").forward(request, response);
         }
     }
@@ -68,13 +65,19 @@ public class AjoutFournisseur extends HttpServlet {
             throws ServletException, IOException {
 
         Fournisseur fournisseur = new Fournisseur();
+        CreationFournisseurForm form = new CreationFournisseurForm();
         boolean erreur = false;
 
         fournisseur.setNomEntreprise(request.getParameter("nomEntrepriseFournisseur"));
         fournisseur.setSiretFournisseur(request.getParameter("siretFournisseur"));
         fournisseur.setNomContact(request.getParameter("nomContactFournisseur"));
         fournisseur.setPrenomContact(request.getParameter("prenomContactFournisseur"));
-        fournisseur.setNumVoieFournisseur(Integer.parseInt(request.getParameter("numVoieFournisseur")));
+        try {
+            fournisseur.setNumVoieFournisseur(Integer.parseInt(request.getParameter("numVoieFournisseur")));
+        } catch (NumberFormatException ex) {
+            request.setAttribute("champsVoie", "Erreur saisir nombre");
+            erreur = true;
+        }
         fournisseur.setAdresseFournisseur(request.getParameter("adresseFournisseur"));
         fournisseur.setComplementAdresseFournisseur(request.getParameter("complementAdresseFournisseur"));
         fournisseur.setMailFournisseur(request.getParameter("mailFournisseur"));
@@ -82,30 +85,55 @@ public class AjoutFournisseur extends HttpServlet {
         fournisseur.setVilleFournisseur(request.getParameter("villeFournisseur"));
         fournisseur.setPaysFournisseur(request.getParameter("paysFournisseur"));
         fournisseur.setCodePostalFournisseur(request.getParameter("codePostalFournisseur"));
-        
-        
-        daoFournisseur.ajouterFournisseur(fournisseur);
-        
-        request.setAttribute("action", 3);
-        
-        request.getRequestDispatcher("/WEB-INF/FormulaireFournisseur.jsp").forward(request, response);
 
         try {
-            CreationFournisseurForm.validationEmail(fournisseur.getMailFournisseur());
+            form.validationEmail(fournisseur.getMailFournisseur());
         } catch (FormulaireValidationException e) {
             request.setAttribute("mailInvalide", e.getMessage());
             erreur = true;
         }
 
+        try {
+            form.validationCodePostal(fournisseur.getCodePostalFournisseur());
+        } catch (FormulaireValidationException e) {
+            request.setAttribute("cpInvalide", e.getMessage());
+            erreur = true;
+        }
+
+        try {
+            form.validationChampsGlobal(fournisseur.getNomContact());
+        } catch (FormulaireValidationException e) {
+            request.setAttribute("champsGlobal", e.getMessage());
+            erreur = true;
+        }
+        try {
+            form.validationVoie(Integer.toString(fournisseur.getNumVoieFournisseur()));
+        } catch (FormulaireValidationException e) {
+            request.setAttribute("champsVoie", e.getMessage());
+            erreur = true;
+        }
+
+        try {
+            form.validationSiret(fournisseur.getSiretFournisseur());
+        } catch (FormulaireValidationException e) {
+            request.setAttribute("champsSiret", e.getMessage());
+            erreur = true;
+        }
+
         if (erreur == false) {
+
             daoFournisseur.ajouterFournisseur(fournisseur);
             DaoFactory daoFactory = DaoFactory.getInstance();
             List<Fournisseur> fournisseurListe = daoFactory.getFournisseurDAO().listeFournisseur();
+
             request.setAttribute("fournisseurs", fournisseurListe);
+            request.setAttribute("fournisseurAjoute", fournisseurListe.get(fournisseurListe.size() - 1));
             request.setAttribute("action", 2);
             request.getRequestDispatcher(VUE_SUCCES).forward(request, response);
 
         } else {
+            request.setAttribute("action", 3);
+            request.setAttribute("fournisseur", fournisseur);
 
             request.getRequestDispatcher(VUE_FORM).forward(request, response);
         }

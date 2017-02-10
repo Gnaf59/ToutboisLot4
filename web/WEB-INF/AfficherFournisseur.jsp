@@ -1,9 +1,18 @@
 <jsp:include page="Menu.jsp" />
 
 
+
+
 <section id="bodyAfficheFournisseur">
     <div class="container ">
-
+        
+        <c:if test="${ not empty fournisseurAjoute}">
+            <h3 id="message" style="text-align: center"> Le fournisseur : 
+                <c:out value="${fournisseurAjoute.nomEntreprise }"/>, numéro 
+                <c:out value="${fournisseurAjoute.idFournisseur }"/>
+        est bien ajouté à la base de données</h3>
+        </c:if> 
+        
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="row">
                 <table class="table">

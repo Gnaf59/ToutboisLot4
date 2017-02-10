@@ -23,25 +23,22 @@ import javax.servlet.http.HttpSession;
 public class AfficheFournisseur extends HttpServlet {
 
     private InterfaceFournisseurDAO daoFournisseur;
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession session = request.getSession();
-        
+
         String identifiant = (String) session.getAttribute("login");
-        
-        if ("admin".equals(identifiant))
-        {
+
+        if ("admin".equals(identifiant)) {
             request.setAttribute("action", Integer.parseInt(request.getParameter("action")));
             DaoFactory daoFactory = DaoFactory.getInstance();
             List<Fournisseur> fournisseurListe = daoFactory.getFournisseurDAO().listeFournisseur();
             request.setAttribute("fournisseurs", fournisseurListe);
             request.getRequestDispatcher("/WEB-INF/AfficherFournisseur.jsp").forward(request, response);
-        }
-        else
-        {
+        } else {
             request.getRequestDispatcher("/WEB-INF/Login.jsp").forward(request, response);
         }
     }
@@ -57,18 +54,17 @@ public class AfficheFournisseur extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         List<Fournisseur> fournisseurs = daoFournisseur.listeFournisseur();
         request.setAttribute("fournisseurs", fournisseurs);
-        
         request.setAttribute("action", 2);
         request.getRequestDispatcher("WEB-INF/AfficherFournisseur.jsp").forward(request, response);
     }
-    
+
     @Override
     public void init() throws ServletException {
         DaoFactory daoFactory = DaoFactory.getInstance();
-        this.daoFournisseur=daoFactory.getFournisseurDAO();
+        this.daoFournisseur = daoFactory.getFournisseurDAO();
     }
 
     /**
